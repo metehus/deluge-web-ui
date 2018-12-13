@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="/moment-precise-range.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/pt-br.js"></script>
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="app.js"></script>
+<script src="main.js"></script>
+<script>
+    var socket = io();
+</script>
+
+<style>
+.mdl-data-table {
+    width:100%; 
+}
+#my-table td, th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+#my-table{
+  margin-top:24px;
+  height: auto
+}
+.material-icons {
+  vertical-align: -25%;
+}
+.state{
+    padding: 0px !important;
+}
+/*.ckbox{
+    padding: 0;
+    width: 53px;
+}/*
+@media only screen and (max-width: 480px) {
+
+table, thead, tbody, th, td, tr {
+    display: block;
+}
+
+thead {
+  display: none;
+}
+
+
+.mdl-data-table tbody tr {
+  height: auto;
+}
+
+.mdl-data-table tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+
+.mdl-data-table td,
+.mdl-data-table td:first-of-type {
+  padding-left: 50%;
+}
+
+.mdl-data-table td:before {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 45%;
+  padding: 6px 18px 0;
+  white-space: nowrap;
+  content: attr(data-label);
+  text-align: left;
+  color: rgba(0, 0, 0, 0.541176);
+  font-weight: bold;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+.mdl-data-table td:last-of-type {
+  padding-right: 18px;
+}
+
+}*/
+</style>
+
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#3f51b5">
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+     <!-- Title -->
+     <span class="mdl-layout-title">Title</span>
+     <!-- Add spacer, to align navigation to the right -->
+     <div class="mdl-layout-spacer"></div>
+     <!-- Navigation -->
+     <nav class="mdl-navigation">
+       <a class="mdl-navigation__link" href="">Link</a>
+       <a class="mdl-navigation__link" href="">Link</a>
+       <a class="mdl-navigation__link" href="">Link</a>
+       <a class="mdl-navigation__link" href="">Link</a>
+     </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content" style="overflow-x: auto;">
+            <section class="mdl-grid" id="my-table">
+                <div class="mdl-layout-spacer"></div>
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" >
+                        <thead>
+                            <tr>
+                                <th class="state"></th>
+                                <th class="mdl-data-table__cell--non-numeric">Torrent</th>
+                                <th>Tamanho</th>
+                                <th>%</th>
+                                <th>Vel. DW</th>
+                                <th>Vel. UP</th>
+                                <th>Tempo estimado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="torrents">
+                            
+                        </tbody>
+                    </table>
+            </section>
+
+    </div>
+  </main>
+</div>
+
+
+<ul id="torrents">
+</ul>
+
